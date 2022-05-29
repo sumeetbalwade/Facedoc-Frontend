@@ -3,16 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import ShowDocument from "./ShowDocument";
 
 const ShowDocuments = (props) => {
-  const [docs, setDocs] = useState([
-    {
-      name: "document1",
-      img: "https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      name: "document2",
-      img: "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-  ]);
   return (
     <Container>
       <h3
@@ -26,10 +16,10 @@ const ShowDocuments = (props) => {
         User Documents
       </h3>
       <Row style={{"marginBottom" : "10%"}}>
-        {docs.map(({ name, img }) => {
+        {props.docs.map(({ documentName, documentUrl }, index) => {
           return (
-            <Col lg={4}>
-              <ShowDocument key={name} name={name} img={img} />
+            <Col lg={4} key={index}>
+              <ShowDocument  name={documentName} img={documentUrl} />
             </Col>
           );
         })}

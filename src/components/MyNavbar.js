@@ -8,11 +8,12 @@ const MyNavbar = (props) => {
         <Container>
           <Navbar.Brand href="#home">FaceDoc</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Profle</Nav.Link>
-            <Nav.Link href="#pricing">Register</Nav.Link>
-            <Nav.Link href="#pricing">Login</Nav.Link>
-            <Nav.Link href="#pricing">Logout</Nav.Link>
+            {props.links.map((a, index)=>{
+              return(
+                <Nav.Link key={index} href={a.href}>{a.name}</Nav.Link>
+              )
+            })}
+
           </Nav>
         </Container>
       </Navbar>

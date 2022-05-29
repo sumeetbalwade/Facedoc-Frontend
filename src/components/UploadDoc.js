@@ -25,7 +25,7 @@ const UploadDoc = (props) => {
     formData.append("documentName", document);
     formData.append("document", image);
 
-    let baseUrl = `${process.env.REACT_APP_BASEURL}api/doc/1`;
+    let baseUrl = `${process.env.BASEURL}/api/doc/1`;
     console.log(baseUrl);
 
     axios.post(baseUrl, formData).then((res) => {

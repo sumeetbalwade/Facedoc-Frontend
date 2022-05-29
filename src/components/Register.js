@@ -25,19 +25,25 @@ const Register = (props) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formdata);
-    let baseUrl = `${process.env.REACT_APP_BASEURL}/api/user`;
+    let baseUrl = `${process.env.BASEURL}/api/user`;
     console.log(process.env);
-  
+
     console.log(baseUrl);
 
-    // axios.post(baseUrl, formdata).then((res) => {
-    //   console.log(res);
-    // });
+    axios.post(baseUrl, formdata).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
     <div>
-      <MyNavbar></MyNavbar>
+      <MyNavbar
+        links={[
+          { name: "Home", href: "/" },
+          { name: "Login", href: "/login" },
+        ]}
+      />
+
       <div className="wrap">
         <h3>Register User</h3>
         <Form onSubmit={onSubmitHandler}>

@@ -2,23 +2,34 @@ import React, { useState } from "react";
 import { Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import Camera from "./Camera";
 import "./Register.css";
+import axios from "axios";
 
-const GetDataByImage = (props) => {
+const UploadUserPhotos = (props) => {
   const [accessCamera, setAccessCamera] = useState(false);
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState([]);
+  const [show, setShow] = useState([]);
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(img);
+    img.forEach((data) => {
+      const formData = new FormData();
+      formData.append("document", data);
 
-    
+      let baseUrl = `${process.env.BASEURL}/api/dataset/1`;
+      console.log(baseUrl);
+      axios.post(baseUrl, formData).then((res) => {
+        console.log(res);
+      });
+    });
   };
 
   const imageHandler = (e) => {
-    setImg(e.target.files[0]);
+    setImg([...e.target.files]);
+    setShow([]);
   };
 
-  const getImage = (image) => {
-    setImg(image);
+  const getImage = (image, src) => {
+    setImg([...img, image]);
+    setShow([...show, src]);
   };
   return (
     <div className="wrap">
@@ -31,12 +42,13 @@ const GetDataByImage = (props) => {
           <Form.Control
             type="file"
             placeholder="image"
+            multiple
             onChange={imageHandler}
           />
         </Form.Group>
         {accessCamera ? (
           <div>
-            <Camera getImage={getImage} />
+            <Camera getImage={getImage} count={img.length} />
             <Button
               variant="danger"
               onClick={() => {
@@ -51,6 +63,7 @@ const GetDataByImage = (props) => {
           <Button
             onClick={() => {
               setAccessCamera(true);
+              setImg([]);
             }}
             style={{ marginTop: "10px" }}
           >
@@ -58,7 +71,17 @@ const GetDataByImage = (props) => {
           </Button>
         )}
         <div>
-          <Button variant="primary" type="submit" style={{ marginTop: "10px" }}>
+          {show.map((img, index) => (
+            <img key={index} alt="" src={img} />
+          ))}
+        </div>
+        <div>
+          <Button
+            disabled={img.length !== 20}
+            variant="primary"
+            type="submit"
+            style={{ marginTop: "10px" }}
+          >
             Submit
           </Button>
         </div>
@@ -67,4 +90,4 @@ const GetDataByImage = (props) => {
   );
 };
 
-export default GetDataByImage;
+export default UploadUserPhotos;

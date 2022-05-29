@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import 'dotenv/config'
 
 import App from "./App";
 

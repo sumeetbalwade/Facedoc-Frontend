@@ -14,7 +14,8 @@ const ShowDocument = (props) => {
         <Card.Title>{props.name}</Card.Title>
         <Button
           variant="primary"
-          onClick={() => {
+          onClick={(e) => {
+             e.preventDefault(); 
             window.open(props.img, "_blank");
           }}
           target="_blank"

@@ -11,7 +11,8 @@ import ShowDocuments from "./components/ShowDocuments";
 import ShowProfile from "./components/ShowProfile";
 import AddRole from "./components/AddRole";
 import GetDataByImage from "./components/GetDataByImage";
-
+import UploadUserPhotos from "./components/UploadUserPhotos";
+import Home from './Home'
 const App = () => {
   return (
     // <div>
@@ -24,10 +25,14 @@ const App = () => {
     //   <GetDataByImage />
     // </div>
     <Routes>
-      <Route path="/" element={<Register />}></Route>
+      <Route exact path="/" element={<Home/>}></Route>
+      <Route path="/register" element={<Register />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/uploadoc" element={<UploadDoc/>}></Route>
       <Route path="/getDataByImage" element={<GetDataByImage />}></Route>
+      <Route path="/showProfile" element={<ShowProfile />}></Route>
+      <Route path="/UploadUserPhotos" element={<UploadUserPhotos />}></Route>
+
     </Routes>
   );
 };
