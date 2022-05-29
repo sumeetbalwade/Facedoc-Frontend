@@ -1,0 +1,3 @@
+const DOCUMENTS = ['AADHAR CARD', 'PAN CARD', 'PASSPORT']
+
+export default DOCUMENTS;

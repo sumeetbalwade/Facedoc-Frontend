@@ -1,0 +1,8 @@
+.profile{
+    width: 50%;
+    margin: 10% auto;
+}
+
+Card{
+    border: 2px solid rgba(0, 0, 0, .3);
+}
