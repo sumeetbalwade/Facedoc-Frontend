@@ -1,0 +1,20 @@
+/* .home {
+  background-image: url("https://firebase.google.com/docs/ml-kit/images/face_detection@2x.png");
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.home {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

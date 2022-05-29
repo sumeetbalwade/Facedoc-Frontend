@@ -6,7 +6,7 @@ const MyNavbar = (props) => {
     <div>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">FaceDoc</Navbar.Brand>
+          <Navbar.Brand href="/">FaceDoc</Navbar.Brand>
           <Nav className="me-auto">
             {props.links.map((a, index)=>{
               return(

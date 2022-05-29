@@ -3,10 +3,10 @@ import { Form, Button, Container } from "react-bootstrap";
 import "./Register.css";
 import axios from "axios";
 import MyNavbar from "./MyNavbar";
-import { useHistory } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom"
 
 const Login = (props) => {
+  const navigate = useNavigate()
   const initForm = Object.freeze({
     email: "",
     password: "",
@@ -30,6 +30,9 @@ const Login = (props) => {
 
     axios.post(baseUrl, formdata).then((res) => {
       console.log(res);
+      //updates require
+      localStorage.setItem('id', res.data.id);
+      navigate('/getDataByImage')
     });
   };
 

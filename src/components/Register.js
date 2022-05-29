@@ -3,8 +3,11 @@ import { Form, Button } from "react-bootstrap";
 import "./Register.css";
 import MyNavbar from "./MyNavbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 const Register = (props) => {
+  const navigate = useNavigate()
+
   const initialFormData = Object.freeze({
     name: "",
     email: "",
@@ -32,6 +35,9 @@ const Register = (props) => {
 
     axios.post(baseUrl, formdata).then((res) => {
       console.log(res);
+      //updates require
+      localStorage.setItem('id', res.id);
+      navigate("/UploadUserPhotos");
     });
   };
 

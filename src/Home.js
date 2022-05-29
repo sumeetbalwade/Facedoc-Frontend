@@ -1,6 +1,6 @@
 import React from "react";
 import MyNavbar from "./components/MyNavbar";
-
+import "./Home.css";
 const Home = (props) => {
   return (
     <div>
@@ -10,9 +10,13 @@ const Home = (props) => {
           { name: "Login", href: "/login" },
         ]}
       />
-      <h1 style={{ textAlign: "center", paddingTop: "5%" }}>
+      <h1 style={{ textAlign: "center", paddingTop: "10%" }}>
         Welcome To FaceDoc
       </h1>
+      <div>
+
+      </div>
+
     </div>
   );
 };
